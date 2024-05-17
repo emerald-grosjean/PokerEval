@@ -6,11 +6,7 @@
 // for more information on this license.
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
 
 namespace CardVectorImage
@@ -22,7 +18,7 @@ namespace CardVectorImage
     {
         /// <exclude/>
         private SVGCards.Deck image = new SVGCards.Deck();
-        
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -208,7 +204,8 @@ namespace CardVectorImage
         /// <exclude/>
         private void SetCardVisiblity(CardType type, bool bvisible)
         {
-            switch (type) {
+            switch (type)
+            {
                 case CardType.TwoOfHearts:
                     image.Deck_Alt.Hearts.Two.IsVisible = bvisible;
                     break;

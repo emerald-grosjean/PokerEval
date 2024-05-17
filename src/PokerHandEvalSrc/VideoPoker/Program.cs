@@ -1,7 +1,6 @@
 // This application is covered by the LGPL Gnu license. See http://www.gnu.org/copyleft/lesser.html 
 // for more information on this license.
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace VideoPoker

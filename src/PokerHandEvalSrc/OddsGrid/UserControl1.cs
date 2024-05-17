@@ -1,13 +1,7 @@
 // This control is covered by the LGPL Gnu license. See http://www.gnu.org/copyleft/lesser.html 
 // for more information on this license.
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
-using System.Windows.Forms;
 using HoldemHand;
+using System.Windows.Forms;
 
 namespace OddsGrid
 {

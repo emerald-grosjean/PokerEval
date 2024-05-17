@@ -1,13 +1,8 @@
 // This application is covered by the LGPL Gnu license. See http://www.gnu.org/copyleft/lesser.html 
 // for more information on this license.
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using HoldemHand;
+using System;
+using System.Windows.Forms;
 
 namespace VideoPoker
 {
@@ -76,7 +71,7 @@ namespace VideoPoker
             /// <summary>
             /// Ready for new hand
             /// </summary>
-            Start, 
+            Start,
             /// <summary>
             /// Allow user to toggle hold values on cards
             /// </summary>
@@ -94,7 +89,8 @@ namespace VideoPoker
         private int BetValue
         {
             get { return bet; }
-            set { 
+            set
+            {
                 bet = value;
                 if (bet > 0)
                 {
@@ -141,11 +137,11 @@ namespace VideoPoker
             Card5.Card = (CardVectorImage.CardVector.CardType)NextCard;
 
             // Put in hand array
-            hand[0] = (int) Card1.Card;
-            hand[1] = (int) Card2.Card;
-            hand[2] = (int) Card3.Card;
-            hand[3] = (int) Card4.Card;
-            hand[4] = (int) Card5.Card;
+            hand[0] = (int)Card1.Card;
+            hand[1] = (int)Card2.Card;
+            hand[2] = (int)Card3.Card;
+            hand[3] = (int)Card4.Card;
+            hand[4] = (int)Card5.Card;
 
             // Change state to SetHold
             CurrentState = State.SetHold;
@@ -179,7 +175,8 @@ namespace VideoPoker
         private State CurrentState
         {
             get { return currentState; }
-            set { 
+            set
+            {
                 currentState = value;
                 if (currentState == State.Start)
                 {
@@ -314,7 +311,7 @@ namespace VideoPoker
             {
                 CurrentEv.Text = "";
             }
-            
+
             Invalidate();
         }
 
@@ -325,10 +322,10 @@ namespace VideoPoker
         /// <returns>descriptive string</returns>
         public string Description(uint handval)
         {
-            switch ((Hand.HandTypes)Hand.HandType(handval)) 
+            switch ((Hand.HandTypes)Hand.HandType(handval))
             {
                 case Hand.HandTypes.StraightFlush:
-                    if (Hand.CardRank((int) Hand.TopCard(handval)) == Hand.RankAce)
+                    if (Hand.CardRank((int)Hand.TopCard(handval)) == Hand.RankAce)
                     {
                         return "Royal Flush";
                     }
@@ -346,7 +343,7 @@ namespace VideoPoker
                 case Hand.HandTypes.TwoPair:
                     return "Two Pairs";
                 case Hand.HandTypes.Pair:
-                    if (Hand.CardRank((int) Hand.TopCard(handval)) >= Hand.RankJack)
+                    if (Hand.CardRank((int)Hand.TopCard(handval)) >= Hand.RankJack)
                     {
                         return "Jacks or Better";
                     }
@@ -369,7 +366,7 @@ namespace VideoPoker
             switch ((Hand.HandTypes)Hand.HandType(handval))
             {
                 case Hand.HandTypes.StraightFlush:
-                    if (Hand.CardRank((int) Hand.TopCard(handval)) == Hand.RankAce)
+                    if (Hand.CardRank((int)Hand.TopCard(handval)) == Hand.RankAce)
                     {
                         if (coins < 5)
                         {
@@ -394,7 +391,7 @@ namespace VideoPoker
                 case Hand.HandTypes.TwoPair:
                     return 2.0 * coins;
                 case Hand.HandTypes.Pair:
-                    if (Hand.CardRank((int) Hand.TopCard(handval)) >= Hand.RankJack)
+                    if (Hand.CardRank((int)Hand.TopCard(handval)) >= Hand.RankJack)
                     {
                         return 1.0 * coins;
                     }
@@ -414,9 +411,9 @@ namespace VideoPoker
             {
                 holdmask |= (hold[i] ? (1U << i) : 0U);
             }
-             
+
             ev = ExpectedValue(holdmask);
-       
+
             UpdateLabels();
         }
 
@@ -497,8 +494,8 @@ namespace VideoPoker
         /// </summary>
         public void AutomaticHoldset()
         {
-            double  expectedValue = 0.0;
-            
+            double expectedValue = 0.0;
+
             ev = bestev = ExpectedValue(0U);
             bestmask = 0U;
 
@@ -532,7 +529,7 @@ namespace VideoPoker
                 {
                     int newcard = NextCard;
                     hand[i] = newcard;
-                    SetCardValue(i, (int) newcard);
+                    SetCardValue(i, (int)newcard);
                 }
             }
 
@@ -662,7 +659,7 @@ namespace VideoPoker
                 win = 0.0;
                 amount -= (5 - BetValue);
                 BetValue = 5;
-                UpdateLabels();             
+                UpdateLabels();
                 ShuffleDeck();
             }
         }

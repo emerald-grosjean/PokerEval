@@ -1,24 +1,21 @@
-using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.Threading;
 using HoldemHand;
+using System;
 using System.Diagnostics;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace Benchmark
 {
-	/// <summary>
-	/// Summary description for Form1.
-	/// </summary>
-	public class Form1 : System.Windows.Forms.Form
-	{
+    /// <summary>
+    /// Summary description for Form1.
+    /// </summary>
+    public class Form1 : System.Windows.Forms.Form
+    {
         /// <exclude/>
 		private Thread tid1 = null;
         /// <exclude/>
 		private object lockValue = new object();
-       
+
         /// <exclude/>
         private delegate void SetLabelTextDelegate(string s);
         /// <exclude/>
@@ -43,46 +40,46 @@ namespace Benchmark
         private Label label11;
         private Label SevenCardEvaluteInlined;
 
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.Container components = null;
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.Container components = null;
 
         /// <exclude/>
 		public Form1()
-		{
-			//
-			// Required for Windows Form Designer support
-			//
-			InitializeComponent();
+        {
+            //
+            // Required for Windows Form Designer support
+            //
+            InitializeComponent();
 
-			//
-			// TODO: Add any constructor code after InitializeComponent call
-			//
-		}
+            //
+            // TODO: Add any constructor code after InitializeComponent call
+            //
+        }
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		protected override void Dispose( bool disposing )
-		{
-			if( disposing )
-			{
-				if (components != null) 
-				{
-					components.Dispose();
-				}
-			}
-			base.Dispose( disposing );
-		}
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (components != null)
+                {
+                    components.Dispose();
+                }
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
+        #region Windows Form Designer generated code
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.Benchmark = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -407,29 +404,29 @@ namespace Benchmark
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
-		}
-		#endregion
+        }
+        #endregion
 
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
-		[STAThread]
-		static void Main() 
-		{
-			Application.Run(new Form1());
-		}
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            Application.Run(new Form1());
+        }
 
         /// <exclude/>
 		private void FiveCardHandTypeLabel(string s)
-		{
-			// Check if we need to call BeginInvoke.
-			if (InvokeRequired)
-			{
+        {
+            // Check if we need to call BeginInvoke.
+            if (InvokeRequired)
+            {
                 BeginInvoke(new SetLabelTextDelegate(FiveCardHandTypeLabel), new object[] { s });
-				return;
-			}
-			FiveCardHandType.Text = s;
-		}
+                return;
+            }
+            FiveCardHandType.Text = s;
+        }
 
         /// <exclude/>
         private void FiveCardHandTypeInlineLabel(string s)
@@ -517,11 +514,11 @@ namespace Benchmark
 
         /// <exclude/>
 		public void TestThread()
-		{
-			lock (lockValue)
-			{
-				HiPerfTimer timer = new HiPerfTimer();
-				string output = "";
+        {
+            lock (lockValue)
+            {
+                HiPerfTimer timer = new HiPerfTimer();
+                string output = "";
 
                 timer.Start();
                 long count1 = ValidateEnumerate5();
@@ -570,8 +567,8 @@ namespace Benchmark
                 duration4 = timer.Duration;
                 output = string.Format("{0:###,###,###,###} hands per second", count4 / duration4);
                 SevenCardEvaluateInlinedLabel(output);
-			}
-		}
+            }
+        }
 
         /// <summary>
         /// 
@@ -686,7 +683,7 @@ namespace Benchmark
 
         /// <exclude/>
 		private void Benchmark_Click(object sender, System.EventArgs e)
-		{
+        {
             if (tid1 != null && tid1.IsAlive) return;
 
             FiveCardHandType.Text = "";
@@ -697,19 +694,19 @@ namespace Benchmark
             FiveCardEvaluteInlined.Text = "";
             SevenCardEvaluate.Text = "";
             this.SevenCardEvaluteInlined.Text = "";
-			
-			tid1 = new Thread(new ThreadStart(TestThread));
+
+            tid1 = new Thread(new ThreadStart(TestThread));
             tid1.IsBackground = true;
             tid1.Priority = ThreadPriority.Highest;
-			tid1.Start();
-		
-		}
+            tid1.Start();
+
+        }
 
         /// <exclude/>
 		private void Form1_Load(object sender, System.EventArgs e)
-		{
-		
-		}
+        {
+
+        }
 
         #region Validation Functions
         /// <summary>
@@ -884,5 +881,5 @@ namespace Benchmark
             return count;
         }
         #endregion
-	}
+    }
 }

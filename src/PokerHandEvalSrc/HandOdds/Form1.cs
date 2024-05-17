@@ -1,11 +1,9 @@
 // This application is covered by the LGPL Gnu license. See http://www.gnu.org/copyleft/lesser.html 
 // for more information on this license.
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using HoldemHand;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace HandOdds
 {
@@ -108,7 +106,7 @@ namespace HandOdds
                 {
                     for (int i = 0; i < count; i++)
                     {
-                        SetPlayerValue(pocketIndex[i], (((double)wins[i]) + ((double) ties[i])/2.0) / ((double)totalhands));
+                        SetPlayerValue(pocketIndex[i], (((double)wins[i]) + ((double)ties[i]) / 2.0) / ((double)totalhands));
                     }
                 }
 

@@ -1,9 +1,7 @@
 // This application is covered by the LGPL Gnu license. See http://www.gnu.org/copyleft/lesser.html 
 // for more information on this license.
-using System;
-using System.Runtime.InteropServices;
 using System.ComponentModel;
-using System.Threading;
+using System.Runtime.InteropServices;
 
 namespace HandOdds
 {
@@ -44,10 +42,11 @@ namespace HandOdds
         /// </summary>
         public double CurrentTime
         {
-            get {
+            get
+            {
                 long time;
                 QueryPerformanceCounter(out time);
-                return ((double) time)/((double) freq);
+                return ((double)time) / ((double)freq);
             }
         }
 
@@ -59,9 +58,9 @@ namespace HandOdds
             startTime = CurrentTime;
         }
 
-       /// <summary>
-       /// Retreives time since the last time Start() was called.
-       /// </summary>
+        /// <summary>
+        /// Retreives time since the last time Start() was called.
+        /// </summary>
         public double Duration
         {
             get
