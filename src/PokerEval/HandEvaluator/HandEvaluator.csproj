@@ -26,7 +26,8 @@
     <DefineConstants>TRACE;DEBUG;GENTIME</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\HandEvaluator.XML</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <UseVSHostingProcess>true</UseVSHostingProcess>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
