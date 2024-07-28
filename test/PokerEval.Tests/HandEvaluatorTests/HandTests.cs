@@ -63,6 +63,10 @@ public class HandTests
     [DataRow(new string[] { "8h8d", "KsQs" }, "", new double[] { 0.5111, 0.4889 })]
     [DataRow(new string[] { "8h8d", "5s4s" }, "", new double[] { 0.7815, 0.2185 })]
     [DataRow(new string[] { "AsAh", "KsKh", "QsQh" }, "", new double[] { 0.6767, 0.1723, 0.1510 })]
+    [DataRow(new string[] { "AsAh", "KhKd", "QdQc" }, "", new double[] { 0.6687, 0.1744, 0.1569 })]
+    [DataRow(new string[] { "AsAh", "KhKd", "QdQc" }, "QsJsTs", new double[] { 0.3311, 0.1307, 0.5382 })]
+    [DataRow(new string[] { "AsAh", "KhKd", "QdQc" }, "QsJsTs9h", new double[] { 0.2143, 0.5476, 0.2381 })]
+    [DataRow(new string[] { "AsAh", "KhKd", "QdQc" }, "QsJsTs9hKs", new double[] { 1.0000, 0.0000, 0.0000 })]
     public void HandOddsTest_WinRates(string[] pockets, string board, double[] expectedWinRates)
     {
         var wins = new long[pockets.Length];
