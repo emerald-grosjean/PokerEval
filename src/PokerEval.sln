@@ -2,11 +2,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34902.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandEvaluator", "HandEvaluator\HandEvaluator.csproj", "{57836673-FE81-4367-A4EB-AAA46FB954D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandEvaluator", "PokerEval\HandEvaluator\HandEvaluator.csproj", "{57836673-FE81-4367-A4EB-AAA46FB954D2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmark", "Benchmark\Benchmark.csproj", "{6FABEBAF-01BB-45FA-B884-ABB3CE3E49B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmark", "PokerEval\Benchmark\Benchmark.csproj", "{6FABEBAF-01BB-45FA-B884-ABB3CE3E49B0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandEvaluatorTests", "..\..\test\PokerEval.Tests\HandEvaluatorTests\HandEvaluatorTests.csproj", "{433BE2D4-A9F8-4D48-AA09-B3EEFC4C2DD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandEvaluatorTests", "..\test\PokerEval.Tests\HandEvaluatorTests\HandEvaluatorTests.csproj", "{433BE2D4-A9F8-4D48-AA09-B3EEFC4C2DD5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokerEvalApi", "PokerEvalApi\PokerEvalApi.csproj", "{4412AF40-5623-443E-9A9B-5319D9187E76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +52,18 @@ Global
 		{433BE2D4-A9F8-4D48-AA09-B3EEFC4C2DD5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{433BE2D4-A9F8-4D48-AA09-B3EEFC4C2DD5}.Release|Win32.ActiveCfg = Release|Any CPU
 		{433BE2D4-A9F8-4D48-AA09-B3EEFC4C2DD5}.Release|Win32.Build.0 = Release|Any CPU
+		{4412AF40-5623-443E-9A9B-5319D9187E76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4412AF40-5623-443E-9A9B-5319D9187E76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4412AF40-5623-443E-9A9B-5319D9187E76}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4412AF40-5623-443E-9A9B-5319D9187E76}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4412AF40-5623-443E-9A9B-5319D9187E76}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{4412AF40-5623-443E-9A9B-5319D9187E76}.Debug|Win32.Build.0 = Debug|Any CPU
+		{4412AF40-5623-443E-9A9B-5319D9187E76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4412AF40-5623-443E-9A9B-5319D9187E76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4412AF40-5623-443E-9A9B-5319D9187E76}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4412AF40-5623-443E-9A9B-5319D9187E76}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4412AF40-5623-443E-9A9B-5319D9187E76}.Release|Win32.ActiveCfg = Release|Any CPU
+		{4412AF40-5623-443E-9A9B-5319D9187E76}.Release|Win32.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
