@@ -1,0 +1,6 @@
+@PokerEvalApi_HostAddress = http://localhost:5074
+
+GET {{PokerEvalApi_HostAddress}}/pokerodds/
+Accept: application/json
+
+###
