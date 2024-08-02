@@ -1,5 +1,6 @@
 using HoldemHand;
 using Microsoft.AspNetCore.Mvc;
+using PokerEvalApi.Models;
 
 namespace PokerEvalApi.Controllers;
 
@@ -9,31 +10,39 @@ public class PokerOddsController() : ControllerBase
 {
     private const int RateDigits = 4;
 
-    [HttpGet]
-    public IEnumerable<double> Get([FromQuery] string[] pockets, [FromQuery] string? board)
+    [HttpPost]
+    public PokerOddsResponse Post([FromBody] PokerOddsRequest item)
     {
-        var wins = new long[pockets.Length];
-        var losses = new long[pockets.Length];
-        var ties = new long[pockets.Length];
+        var wins = new long[item.Pockets.Count];
+        var losses = new long[item.Pockets.Count];
+        var ties = new long[item.Pockets.Count];
         long totalHands = 0;
 
         Hand.HandOdds(
-            pockets: pockets,
-            board: board,
+            pockets: item.Pockets.Select(_ => _.Pocket).ToArray(),
+            board: item.Board,
             dead: string.Empty,
             wins: wins,
             losses: losses,
             ties: ties,
             totalHands: ref totalHands);
 
-        var items = new List<double>();
+        var items = new List<PokerOddsResponseItem>();
 
-        for (int i = 0; i < pockets.Length; i++)
+        for (int i = 0; i < item.Pockets.Count; i++)
         {
-            var winRate = Math.Round((wins[i] + ties[i] / (double)pockets.Length) / totalHands, RateDigits);
-            items.Add(winRate);
+            var winRate = Math.Round((wins[i] + ties[i] / (double)item.Pockets.Count) / totalHands, RateDigits);
+            items.Add(new()
+            {
+                Pocket = item.Pockets[i].Pocket,
+                WinRate = winRate,
+            });
         }
 
-        return items;
+        return new()
+        {
+            Pockets = items,
+            Board = item.Board,
+        };
     }
 }
